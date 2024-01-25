@@ -70,3 +70,6 @@ group :test do
   gem "selenium-webdriver"
 
 end
+gem 'byebug'
+gem 'sidekiq', '~> 7.2'
+gem 'sidekiq-scheduler', '~> 5.0'

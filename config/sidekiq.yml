@@ -1,0 +1,10 @@
+:scheduler:
+  :schedule:
+    user:
+      cron: "0 * * * *"
+      class: "UserWorker"
+      queue: "default"
+    daily_record:
+      cron: "0 0 * * *"
+      class: "DailyRecordWorker"
+      queue: "default"
