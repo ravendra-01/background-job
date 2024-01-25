@@ -10,6 +10,10 @@ class HourlyRecord
       redis.incr(gender)
     end
 
+    def decr_count(gender)
+      redis.decr(gender)
+    end
+
     def destroy_keys
       redis.del('male', 'female')
     end
