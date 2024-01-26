@@ -32,7 +32,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= "#{user.name['title']} #{user.name['first']} #{user.name['last']}" %></td>
+            <td><%= user.full_name %></td>
             <td><%= user.age %></td>
             <td class="text-capitalize"><%= user.gender %></td>
             <td><%= user.created_at %></td>

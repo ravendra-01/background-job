@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   validates :uuid, presence: true, uniqueness: true
   scope :avg_age, ->(gender) { where(gender: gender).average(:age).to_f.round(2) }
+  before_create :set_full_name
   after_destroy :update_hourly_count
 
   private
@@ -21,5 +22,9 @@ class User < ApplicationRecord
     when 'female'
       daily_record.update(female_avg_age: avg_age, female_count: count)
     end
+  end
+
+  def set_full_name
+    self.full_name = "#{self.name['title']} #{self.name['first']} #{self.name['last']}".squish.titleize
   end
 end
